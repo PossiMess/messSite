@@ -1,0 +1,75 @@
+
+
+
+<!doctype html>
+<html>
+<head>
+	<title>Mess Area</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		li{
+			list-style: none;
+		}
+		a{
+			color: black;
+			text-decoration: none;
+		}
+		.container{
+	
+			position: relative;
+		}
+		.col-md-3{
+			position: relative;
+		}
+		.col-md-3 > code{
+			position: absolute;
+		}
+		.title{
+			position: absolute;
+			top: 5px;
+			right: 20px;
+			padding: 5px;
+		}
+		.title:hover{
+			opacity: 0.5;
+		}
+		.updated_at{
+			position: absolute;
+			left: 25px;
+			bottom: 5px;
+			color: #FFF;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		
+		<nav>
+			<ul class="list-inline text-center jumbotron">
+				<li>
+					<a href="/home/">Home</a>
+				</li>
+				<li>
+					<a href="/photo/">Photo</a>
+				</li>
+				<li>
+					<a href="#">Life</a>
+				</li>
+			</ul>
+		</nav>	
+	</header>
+	{% block content %}
+	{% for img in obj %}
+	
+	<div class="container text-center panel-heading panel">
+		
+				<img src="{{ img.image.url }}" alt="{{img.title}}" class="img-thumbnail" width="100%">
+				<h5 class="bg-warning title">{{img.title}} <small>{{img.location}}</small></h5>
+				<h5 class="updated_at">{{img.updated_at|date:"M d, Y"}}</h5>
+
+	</div>
+	{% endfor %}
+	{%endblock %}
+</body>	
+</html>

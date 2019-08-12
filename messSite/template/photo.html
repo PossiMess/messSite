@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+
+<h1>hello World</h1>
+{% block content %}
+<h1> {{title}}</h1>
+<h2> {{location}}</h2>
+{% load static %}
+{% for i in obj %}
+<p>{{i.title}}</p>
+<img src="{{i.image.url}}" alt="no" width=450>
+{% endfor %}
+{% endblock %}
